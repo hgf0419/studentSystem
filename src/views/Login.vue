@@ -30,10 +30,10 @@
 </template>
 
 <script>
-import {REQUEST} from "./../utils/request";
+
 
 export default {
-  name: "List",
+  name: "Login",
   data: function() {
     return {
       formObj:{
@@ -49,8 +49,9 @@ export default {
     fnLogin:function(){
       let that=this;
       //oRow449JsV4xZZ2nHotq-F2AI7z4
+      //11888881  sxs123
 
-      REQUEST('/student/login?openid=', 'post', that.formObj)
+      that.$Req('/student/login?openid=', 'post', that.formObj)
       .then((res) => {
         console.log(res);
         

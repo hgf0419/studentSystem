@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 简单说明
+该测试项目没使用任何UI 仅使用了CSS和自定义变量

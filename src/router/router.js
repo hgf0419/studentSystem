@@ -26,7 +26,7 @@ const router = new VueRouter({
         },
         {
           path: 'list',
-          component: List
+          component: List,
         },
         {
           path: 'me',
@@ -42,7 +42,8 @@ const router = new VueRouter({
       path: '/login',
       component: Login,
     }
-  ]
+  ],
+  mode:'history'  //默认是hash模式
 })
 
 export {

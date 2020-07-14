@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="t">职位列表</div>
+    <TitleBar ttext="最新职位"></TitleBar>
 
     <ul class="wrap-zw">
       <li class="zw-item" v-for="item in list" :key="item.$index">
@@ -15,11 +15,13 @@
 </template>
 
 <script>
-import { REQUEST } from "./../utils/request";
+import TitleBar from './../components/TitleBar'
 
 export default {
   name: "Home",
-  components: {},
+  components: {
+    TitleBar
+  },
   data: function() {
     return {
       list: []
@@ -35,7 +37,7 @@ export default {
     fnLoad: function() {
       let that = this;
       ///article/GetArticleList?page=1&limit=10&platform=xcx'
-      REQUEST("/student/GetRecruitList?page=1&limit=20", "get", {}).then(
+      that.$Req("/student/GetRecruitList?page=1&limit=20", "get", {}).then(
         res => {
           console.log(res);
           that.list = res.data.Data;

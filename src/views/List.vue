@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>推荐文章</h1>
+    <TitleBar ttext="推荐文章"></TitleBar>
     <div class="art-item" v-for="item in list" :key="item.$index" @click="fnGoArt(item.Id)">
 
       <div class="art-t">{{item.Title}}</div>
@@ -10,9 +10,14 @@
 </template>
 
 <script>
-import {REQUEST} from "./../utils/request";
+import TitleBar from './../components/TitleBar'
+
+
 export default {
   name: "List",
+  components: {
+    TitleBar
+  },
   data: function() {
     return {
       aa: 2222,
@@ -26,7 +31,7 @@ export default {
     fnLoad: function() {
       let that = this;
       ///article/GetArticleList?page=1&limit=10&platform=xcx'
-      REQUEST("/article/GetArticleList?platform=xcx&page=1&limit=20", "get", {}).then(
+      that.$Req("/article/GetArticleList?platform=xcx&page=1&limit=20", "get", {}).then(
         res => {
           console.log(res);
           that.list = res.data;

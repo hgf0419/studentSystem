@@ -44,7 +44,7 @@
     </ul>
 
     <div class="wrap-btn">
-      <div class="btn-confirm" @click="fnQuit">退出</div>
+      <div class="btn-confirm-outline" @click="fnQuit">退出</div>
   
     </div>
 
@@ -53,10 +53,9 @@
 </template>
 
 <script>
-import { REQUEST } from "./../utils/request";
 
 export default {
-  name: "List",
+  name: "Me",
   data: function() {
     return {
       stu: {}
@@ -68,7 +67,7 @@ export default {
   methods: {
     fnLoad: function() {
       let that = this;
-      REQUEST("/student/logininfo", "get", {}).then(res => {
+      that.$Req("/student/logininfo", "get", {}).then(res => {
         console.log(res);
         that.stu = res.data.stu;
       });
